@@ -1,0 +1,71 @@
+[Misc]
+PasswordsInRegistry=0
+MPSetDate=11/4/2021
+MPSetAccount=administrator
+MPSetComputer=LAUNCHPAD
+WhenToPromptForMasterPassword=0
+SessionP=661661901142
+LogFileFormat=
+
+[Bookmarks]
+SubRep=
+ImgNum=42
+192.168.1.9 (gns3)=#140#7%192.168.1.9%22%gns3%-1%0%%0%0%%0%%1080%%%%0#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+Ansible Server=#109#0%192.168.1.238%22%[Ubuntu]%%-1%-1%%%%%0%0%0%%%-1%0%0%0%%1080%%0%0%1#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+esx01.demo.local=#109#0%esx01.demo.local%22%[vCenter]%%-1%-1%%%%%0%0%0%%%-1%0%0%0%%1080%%0%0%1#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+esx02.demo.local=#109#0%esx02.demo.local%22%[vCenter]%%-1%-1%%%%%0%0%0%%%-1%0%0%0%%1080%%0%0%1#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+esx03.demo.local=#109#0%esx03.demo.local%22%[vCenter]%%-1%-1%%%%%0%0%0%%%-1%0%0%0%%1080%%0%0%1#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+Lab-Gns3-Server=#109#0%192.168.1.9%22%gns3%%-1%-1%%%%%0%0%0%%%-1%0%0%0%%1080%%0%0%1#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+Terminal=#97#10%0%#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+
+[Bookmarks_1]
+SubRep=PuTTY sessions
+ImgNum=208
+Default Settings=#109#0%%22%% %-1%-1% %%22%%0%-1%Interactive shell%
+
+[Bookmarks_2]
+SubRep=SONiC Single Site
+ImgNum=41
+Leaf1=#109#0%192.168.1.101%22%admin%%-1%-1%sonic-cli%%%%-1%0%0%%%0%0%0%0%%1080%%0%0%0#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+Leaf2=#109#0%192.168.1.102%22%admin%%-1%-1%sonic-cli%%%%-1%0%0%%%0%0%0%0%%1080%%0%0%0#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+Leaf3=#109#0%192.168.1.103%22%admin%%-1%-1%sonic-cli%%%%-1%0%0%%%0%0%0%0%%1080%%0%0%0#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+Leaf4=#109#0%192.168.1.104%22%admin%%-1%-1%sonic-cli%%%%-1%0%0%%%0%0%0%0%%1080%%0%0%0#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+Spine1=#109#0%192.168.1.201%22%admin%%-1%-1%sonic-cli%%%%-1%0%0%%%0%0%0%0%%1080%%0%0%0#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+Spine2=#109#0%192.168.1.202%22%admin%%-1%-1%sonic-cli%%%%-1%0%0%%%0%0%0%0%%1080%%0%0%0#MobaFont%10%0%0%-1%15%236,236,236%30,30,30%180,180,192%0%-1%0%%xterm%-1%-1%_Std_Colors_0_%80%24%0%1%-1%<none>%%0%0%-1#0# #-1
+
+[Passwords]
+mobauser@mobaserver=kZKIxzFhpaihkATwbqqouH2a7BKvGzKedA==
+ssh22:root@esx02.demo.local=9rqow0HGXaotjlPm
+root@esx02.demo.local=9rqow0HGXaotjlPm
+ssh22:root@esx01.demo.local=9rqow0HGXaotjlPm
+root@esx01.demo.local=9rqow0HGXaotjlPm
+ssh22:gns3@192.168.1.9=wak9LA==
+gns3@192.168.1.9=wak9LA==
+ssh22:ansible@192.168.1.238=9rqow0HGXaotjlPm
+ansible@192.168.1.238=9rqow0HGXaotjlPm
+ssh22:admin@192.168.1.202=x5o/qGU=
+admin@192.168.1.202=x5o/qGU=
+ssh22:admin@192.168.1.201=x5o/qGU=
+admin@192.168.1.201=x5o/qGU=
+ssh22:admin@192.168.1.104=x5o/qGU=
+admin@192.168.1.104=x5o/qGU=
+ssh22:admin@192.168.1.103=x5o/qGU=
+admin@192.168.1.103=x5o/qGU=
+ssh22:admin@192.168.1.102=x5o/qGU=
+admin@192.168.1.102=x5o/qGU=
+ssh22:admin@192.168.1.101=x5o/qGU=
+admin@192.168.1.101=x5o/qGU=
+
+[Credentials]
+vCenter=root:9rqow0HGXaotjlPm
+Ubuntu=ansible:9rqow0HGXaotjlPm
+
+[ImportExportSpecials]
+ExportedSettings=Sessions|Stored passwords|Stored credentials|SSH tunnels|Shared sessions
+mobauser@mobaserver=kZKIxzFhpaihkATwbqqouH2a7BKvGzKedA==
+MobaVersion=21.4
+ExportDate=2022-05-24
+ExportTime=09:42:06
+ExportUsername=administrator
+ExportComputer=LAUNCHPAD
+
