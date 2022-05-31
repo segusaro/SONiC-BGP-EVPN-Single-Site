@@ -1,0 +1,20 @@
+Dell-SPINE-1 ansible_host=192.168.1.201
+Dell-LEAF-1 ansible_host=192.168.1.101
+Dell-SPINE-2 ansible_host=192.168.1.202
+Dell-LEAF-2 ansible_host=192.168.1.102
+Dell-LEAF-3 ansible_host=192.168.1.103
+Dell-LEAF-4 ansible_host=192.168.1.104
+
+[spine]
+Dell-SPINE-1
+Dell-SPINE-2
+
+[leaf]
+Dell-LEAF-1
+Dell-LEAF-2
+Dell-LEAF-3
+Dell-LEAF-4
+
+[Dell:children]
+spine
+leaf

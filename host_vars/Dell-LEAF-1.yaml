@@ -1,0 +1,154 @@
+is_border_leaf: true
+lacp_pcs:
+  - 10
+mclag_member_pcs:
+  - lag: PortChannel10
+sonic_bgp:
+  - bestpath:
+      as_path:
+        multipath_relax: true
+    bgp_as: '{{ bgp_asn }}'
+    router_id: '{{ bgp_router_id }}'
+  - bgp_as: '{{bgp_asn}}'
+    vrf_name: Vrf1
+  - bgp_as: '{{ bgp_asn }}'
+sonic_bgp_af:
+  - address_family:
+      afis:
+        - afi: ipv4
+          max_path:
+            ebgp: 2
+          redistribute:
+            - protocol: connected
+          safi: unicast
+        - advertise_all_vni: true
+          afi: l2vpn
+          safi: evpn
+    bgp_as: '{{bgp_asn}}'
+  - address_family:
+      afis:
+        - advertise_prefix:
+            - afi: ipv4
+              safi: unicast
+          afi: l2vpn
+          safi: evpn
+        - afi: ipv4
+          redistribute:
+            - protocol: connected
+          safi: unicast
+    bgp_as: '{{ bgp_asn }}'
+    vrf_name: Vrf1
+sonic_bgp_neighbors:
+  - bgp_as: '{{bgp_asn}}'
+    neighbors:
+      - neighbor: Eth1/3
+        peer_group: spine-leaf
+      - neighbor: Eth1/4
+        peer_group: spine-leaf
+    peer_group:
+      - '{{sonic_bgp_spineleaf_peergroup}}'
+sonic_bgp_neighbors_af:
+  - bgp_as: '{{bgp_asn}}'
+    neighbors:
+      - address_family: '{{sonic_bgp_fabriclink_neighbors_aflist}}'
+        neighbor: Eth1/3
+      - address_family: '{{sonic_bgp_fabriclink_neighbors_aflist}}'
+        neighbor: Eth1/4
+sonic_config:
+  lines: []
+sonic_interfaces:
+  - description: '"Node-01_eth0-NDC1-10G-1"'
+    enabled: true
+    name: Eth1/7
+  - description: '"Uplink to Dell-SPINE-2 Eth1/1"'
+    enabled: true
+    name: Eth1/3
+  - description: '"Uplink to Dell-SPINE-1 Eth1/1"'
+    enabled: true
+    name: Eth1/4
+  - description: '"MCLAG to Dell-LEAF-2 Eth1/55"'
+    enabled: true
+    name: Eth1/1
+  - description: '"MCLAG to Dell-LEAF-2 Eth1/56"'
+    enabled: true
+    name: Eth1/2
+  - description: router-id
+    name: '{{ loopback_inf0 }}'
+  - description: vtep
+    name: '{{ loopback_inf1 }}'
+  - description: '"LAG to Compute_1_Node-01_bond0"'
+    mtu: 9216
+    name: PortChannel10
+sonic_l2_interfaces:
+  - name: PortChannel 10
+    trunk:
+      allowed_vlans:
+        - vlan: 10
+  - name: PortChannel100
+    trunk:
+      allowed_vlans:
+        - vlan: 10
+        - vlan: 20
+        - vlan: 100
+sonic_l3_interfaces:
+  - ipv6:
+      enabled: true
+    name: Eth1/3
+  - ipv6:
+      enabled: true
+    name: Eth1/4
+  - ipv4:
+      addresses:
+        - address: '{{ loopback0_ip }}'
+    name: '{{ loopback_inf0 }}'
+  - ipv4:
+      addresses:
+        - address: '{{ loopback1_ip }}'
+    name: '{{ loopback_inf1 }}'
+sonic_lag_interfaces:
+  - members:
+      interfaces:
+        - member: Eth1/7
+    mode: lacp
+    name: PortChannel10
+  - members:
+      interfaces:
+        - member: Eth1/1
+        - member: Eth1/2
+    name: PortChannel100
+sonic_system:
+  anycast_address:
+    ipv4: true
+    mac_address: '{{ anycast_mac_address }}'
+  hostname: Dell-LEAF-1
+  interface_naming: standard
+sonic_vlans:
+  - vlan_id: 10
+  - vlan_id: 20
+  - vlan_id: 100
+sonic_vrf_interfaces:
+  - members:
+      interfaces:
+        - name: Vlan10
+        - name: Vlan100
+        - name: Vlan20
+    name: Vrf1
+sonic_vxlans:
+  - evpn_nvo: nvo1
+    name: vtep1
+    source_ip: '{{ loopback1_ip.split(''/'')[0] }}'
+    vlan_map:
+      - vlan: 10
+        vni: 10
+      - vlan: 20
+        vni: 20
+      - vlan: 100
+        vni: 100
+    vrf_map:
+      - vni: 100
+        vrf: Vrf1
+vlans:
+  - 10
+  - 20
+vrfs:
+  - Vrf1

@@ -1,0 +1,10 @@
+- hosts: Dell
+  connection: network_cli
+  gather_facts: false
+  collections:
+    - dellemc.enterprise_sonic
+  tasks: 
+    - name: Save switch configuration
+      sonic_command:
+        commands: write memory      
+  

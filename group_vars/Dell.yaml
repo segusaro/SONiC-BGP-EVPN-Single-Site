@@ -1,0 +1,95 @@
+ansible_httpapi_use_ssl: true
+ansible_httpapi_validate_certs: false
+ansible_network_os: dellemc.enterprise_sonic.sonic
+ansible_password: admin
+ansible_user: admin
+bgp_asn: '{{ host_data[inventory_hostname].bgp_asn }}'
+bgp_router_id: '{{ host_data[inventory_hostname].bgp_router_id }}'
+host_data:
+  Dell-LEAF-1:
+    bgp_asn: 65001
+    bgp_router_id: 1.0.0.1
+    loopback0_ip: 1.0.0.1/32
+    loopback1_ip: 1.1.1.1/32
+    mclag_peer_ip: 192.168.1.102
+    mgmt_gateway_ip: 192.168.1.1
+    mgmt_ip: 192.168.1.101/24
+    vtep_name: vtep1
+  Dell-LEAF-2:
+    bgp_asn: 65001
+    bgp_router_id: 1.0.0.2
+    loopback0_ip: 1.0.0.2/32
+    loopback1_ip: 1.1.1.1/32
+    mclag_peer_ip: 192.168.1.101
+    mgmt_gateway_ip: 192.168.1.1
+    mgmt_ip: 192.168.1.102/24
+    vtep_name: vtep1
+  Dell-LEAF-3:
+    bgp_asn: 65002
+    bgp_router_id: 1.0.0.3
+    loopback0_ip: 1.0.0.3/32
+    loopback1_ip: 2.2.2.2/32
+    mclag_peer_ip: 192.168.1.104
+    mgmt_gateway_ip: 192.168.1.1
+    mgmt_ip: 192.168.1.103/24
+    vtep_name: vtep3
+  Dell-LEAF-4:
+    bgp_asn: 65002
+    bgp_router_id: 1.0.0.4
+    loopback0_ip: 1.0.0.4/32
+    loopback1_ip: 2.2.2.2/32
+    mclag_peer_ip: 192.168.1.103
+    mgmt_gateway_ip: 192.168.1.1
+    mgmt_ip: 192.168.1.104/24
+    vtep_name: vtep3
+  Dell-SPINE-1:
+    bgp_asn: 65000
+    bgp_router_id: 2.0.0.1
+    loopback0_ip: 2.0.0.1/32
+    mgmt_gateway_ip: 192.168.1.1
+    mgmt_ip: 192.168.1.201/24
+  Dell-SPINE-2:
+    bgp_asn: 65000
+    bgp_router_id: 2.0.0.2
+    loopback0_ip: 2.0.0.2/32
+    mgmt_gateway_ip: 192.168.1.1
+    mgmt_ip: 192.168.1.202/24
+loopback0_ip: '{{ host_data[inventory_hostname].loopback0_ip }}'
+loopback_inf0: Loopback0
+loopback_inf1: Loopback1
+mgmt_gateway_ip: '{{ host_data[inventory_hostname].mgmt_gateway_ip }}'
+mgmt_ip: '{{ host_data[inventory_hostname].mgmt_ip }}'
+sonic_bgp_fabriclink_neighbors_aflist:
+  - activate: true
+    afi: ipv4
+    allowas_in:
+      value: 2
+    safi: unicast
+  - activate: true
+    afi: l2vpn
+    safi: evpn
+sonic_bgp_spineleaf_peergroup:
+  advertisement_interval: 5
+  bfd: true
+  capability:
+    extended_nexthop: true
+  name: spine-leaf
+  remote_as:
+    peer_type: external
+  timers:
+    holdtime: 9
+    keepalive: 3
+vlan_info:
+  10:
+    anycast_gateway_ip: 10.10.10.1/24
+    neigh_suppress: true
+    vni: 10
+    vrf: Vrf1
+  20:
+    anycast_gateway_ip: 20.20.20.1/24
+    neigh_suppress: true
+    vni: 20
+    vrf: Vrf1
+  100:
+    vni: 100
+    vrf: Vrf1
