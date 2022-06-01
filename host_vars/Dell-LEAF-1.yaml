@@ -1,8 +1,10 @@
 is_border_leaf: true
 lacp_pcs:
   - 10
+  - 11
 mclag_member_pcs:
   - lag: PortChannel10
+  - lag: PortChannel11
 sonic_bgp:
   - bestpath:
       as_path:
@@ -57,9 +59,12 @@ sonic_bgp_neighbors_af:
 sonic_config:
   lines: []
 sonic_interfaces:
-  - description: '"Node-01_eth0-NDC1-10G-1"'
+  - description: '"Host 1"'
     enabled: true
     name: Eth1/7
+  - description: '"Access switch 1"'
+    enabled: true
+    name: Eth1/8
   - description: '"Uplink to Dell-SPINE-2 Eth1/1"'
     enabled: true
     name: Eth1/3
@@ -76,14 +81,20 @@ sonic_interfaces:
     name: '{{ loopback_inf0 }}'
   - description: vtep
     name: '{{ loopback_inf1 }}'
-  - description: '"LAG to Compute_1_Node-01_bond0"'
+  - description: '"LAG to Host 1"'
     mtu: 9216
     name: PortChannel10
+  - description: '"LAG to Access switch 1"'
+    mtu: 9216
+    name: PortChannel11
 sonic_l2_interfaces:
   - name: PortChannel 10
     trunk:
       allowed_vlans:
         - vlan: 10
+  - name: PortChannel 11
+    access:
+      vlan: 10
   - name: PortChannel100
     trunk:
       allowed_vlans:
@@ -111,6 +122,11 @@ sonic_lag_interfaces:
         - member: Eth1/7
     mode: lacp
     name: PortChannel10
+  - members:
+      interfaces:
+        - member: Eth1/8
+    mode: lacp
+    name: PortChannel11
   - members:
       interfaces:
         - member: Eth1/1
